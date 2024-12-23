@@ -8,18 +8,21 @@ class Feeling:
         self.agent.load_tool_list([
             'sentiment',
             'topics',
-            'emotions'
+            'emotions',
+            'intent'
         ])
         sentiment = self.agent.sentiment()['llm_response']
         topics = self.agent.topics()['llm_response']
         emotions = self.agent.emotions()['llm_response']
+        intent = self.agent.intent()['llm_response']
         return {
             'sentiment': sentiment,
             'topics': topics,
-            'emotions': emotions
+            'emotions': emotions,
+            'intent': intent
         }
     
 
 feel = Feeling()
-vibe = feel.analyze('my dog just laughed from a happy marriage')
+vibe = feel.analyze('I want to stab my ex-boyfriend and marry him happily ever after')
 print(vibe)
