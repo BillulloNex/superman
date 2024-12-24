@@ -12,12 +12,13 @@ class Web:
         self.headers = {
         'Accept': 'application/json',
         'Accept-Encoding': 'gzip',
-        'X-Subscription-Token': os.environ["BRAVE_SEARCH_API"]
+        'X-Subscription-Token': os.environ["BRAVE_SEARCH_API"],
+        
     }
 
     def brave_search(self, query):
         #result = self.brave_tool.run(query)
-        url = f"https://api.search.brave.com/res/v1/web/search?q={query}&summary=1"
+        url = f"https://api.search.brave.com/res/v1/web/search?q={query}&summary=1&count=3"
         search = requests.get(url, headers=self.headers)
         search = search.json()
         result = {}
