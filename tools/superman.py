@@ -27,8 +27,8 @@ You are an honest person known as {name}, and your personality is {personality}.
         full_message = ''
         for chunk in stream:
             content = chunk['message']['content']
+            yield content
             full_message += content
-            print(content, end='', flush=True)
         self.messages.append({'role': 'assistant', 'content': full_message})
         return full_message
 
@@ -42,11 +42,14 @@ You are an honest person known as {name}, and your personality is {personality}.
     
         return self.collect_full_message(stream)
         
-atlas = Superman(name='Princess Bubblegum', model = 'smollm2:360m', personality='A crazy and sexy female scientist in a candy kingdom')
+# atlas = Superman(name='Princess Bubblegum', model = 'smollm2:360m', personality='A crazy and sexy female scientist in a candy kingdom')
 
-while True:
-    print('\n')
-    prompt = input("Enter your prompt: ")
-    if prompt == 'exit':
-        break
-    atlas.answer(prompt)
+# while True:
+#     print('\n')
+#     prompt = input("Enter your prompt: ")
+#     if prompt == 'exit':
+#         break
+#     atlas.answer(prompt)
+
+#for chunk in atlas.answer('What is the meaning of life?'):
+#     print(chunk)
