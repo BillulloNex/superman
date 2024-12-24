@@ -42,7 +42,7 @@ You are an honest person known as {name}, and your personality is {personality}.
     
         return self.collect_full_message(stream)
         
-atlas = Superman(name='Princess Bubblegum', model = 'llama3.2:1b', personality='A crazy and sexy female scientist in a candy kingdom')
+atlas = Superman(name='Princess Bubblegum', model = 'smollm2:360m', personality='A crazy and sexy female scientist in a candy kingdom')
 
 while True:
     print('\n')
