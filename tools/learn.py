@@ -44,9 +44,9 @@ class Web:
         pass
 
 class InternalDoc:
-    def __init__(self):
+    def __init__(self, path='./data'):
         # Load documents from a directory
-        self.documents = SimpleDirectoryReader("./data").load_data()
+        self.documents = SimpleDirectoryReader(path).load_data()
         # Create an index from the documents
         index = VectorStoreIndex.from_documents(self.documents)
         # Create a query engine
@@ -56,11 +56,19 @@ class InternalDoc:
         # Query the system
         response = self.query_engine.query(query)
         print(response)
+        return response
+    
 
 # web = Web()
 # print(web.facts("What is the capital of France?"))
-doc = InternalDoc()
-doc.search('What did Environmental Sustainability Report include?')
+
+
+# doc = InternalDoc()
+# while True:
+#     query = input("Enter your query: ")
+#     if query == 'exit':
+#         break
+#     doc.search(query)
 
 
 

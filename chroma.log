@@ -1,0 +1,57 @@
+[33mWARNING[0m:  [24-12-2024 10:19:43] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [24-12-2024 10:19:45] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component System
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component SqliteDB
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component SimpleQuotaEnforcer
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component Posthog
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component LocalExecutor
+[36mDEBUG[0m:    [24-12-2024 10:19:45] Starting component SegmentAPI
+[32mINFO[0m:     [24-12-2024 10:19:45] Started server process [[36m33068[0m]
+[32mINFO[0m:     [24-12-2024 10:19:45] Waiting for application startup.
+[32mINFO[0m:     [24-12-2024 10:19:45] Application startup complete.
+[32mINFO[0m:     [24-12-2024 10:19:45] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [24-12-2024 10:23:40] ::1:51783 - "GET /api/v2/auth/identity HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:23:40] ::1:51784 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:23:40] ::1:51784 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:23:41] ::1:51783 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:24:04] ::1:51847 - "GET /api/v2/auth/identity HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:24:04] ::1:51849 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:24:04] ::1:51849 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [24-12-2024 10:24:04] Collection memory already exists, returning existing collection.
+[32mINFO[0m:     [24-12-2024 10:24:04] ::1:51847 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:24:05] ::1:51847 - "GET /api/v2/pre-flight-checks HTTP/1.1" 200
+[36mDEBUG[0m:    [24-12-2024 10:24:05] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [24-12-2024 10:24:05] ::1:51847 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/add HTTP/1.1" 201
+[33mWARNING[0m:  [24-12-2024 10:24:05] Number of requested results 5 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [24-12-2024 10:24:05] ::1:51847 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/query HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:24:54] ::1:51928 - "GET /api/v2/auth/identity HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:24:54] ::1:51930 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:24:54] ::1:51930 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [24-12-2024 10:24:54] Collection memory already exists, returning existing collection.
+[32mINFO[0m:     [24-12-2024 10:24:54] ::1:51928 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:24:55] ::1:51928 - "GET /api/v2/pre-flight-checks HTTP/1.1" 200
+[33mWARNING[0m:  [24-12-2024 10:24:55] Insert of existing embedding ID: What is the capital of France?
+[33mWARNING[0m:  [24-12-2024 10:24:55] Add of existing embedding ID: What is the capital of France?
+[32mINFO[0m:     [24-12-2024 10:24:55] ::1:51928 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/add HTTP/1.1" 201
+[32mINFO[0m:     [24-12-2024 10:24:55] ::1:51928 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/add HTTP/1.1" 201
+[32mINFO[0m:     [24-12-2024 10:24:55] ::1:51928 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/add HTTP/1.1" 201
+[32mINFO[0m:     [24-12-2024 10:24:55] ::1:51928 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/query HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:25:09] ::1:51972 - "GET /api/v2/auth/identity HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:25:10] ::1:51973 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:25:10] ::1:51973 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [24-12-2024 10:25:10] Collection memory already exists, returning existing collection.
+[32mINFO[0m:     [24-12-2024 10:25:10] ::1:51972 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [24-12-2024 10:25:10] ::1:51972 - "GET /api/v2/pre-flight-checks HTTP/1.1" 200
+[33mWARNING[0m:  [24-12-2024 10:25:10] Insert of existing embedding ID: What is the capital of France?
+[33mWARNING[0m:  [24-12-2024 10:25:10] Add of existing embedding ID: What is the capital of France?
+[32mINFO[0m:     [24-12-2024 10:25:10] ::1:51972 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/add HTTP/1.1" 201
+[33mWARNING[0m:  [24-12-2024 10:25:10] Insert of existing embedding ID: What is the capital of Vietnam?
+[33mWARNING[0m:  [24-12-2024 10:25:10] Add of existing embedding ID: What is the capital of Vietnam?
+[32mINFO[0m:     [24-12-2024 10:25:10] ::1:51972 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/add HTTP/1.1" 201
+[33mWARNING[0m:  [24-12-2024 10:25:10] Insert of existing embedding ID: Who is the best dog?
+[33mWARNING[0m:  [24-12-2024 10:25:10] Add of existing embedding ID: Who is the best dog?
+[32mINFO[0m:     [24-12-2024 10:25:10] ::1:51972 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/add HTTP/1.1" 201
+[32mINFO[0m:     [24-12-2024 10:25:10] ::1:51972 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/8128aeb2-62c8-4f74-b782-ea20d672af11/query HTTP/1.1" 200
