@@ -29,8 +29,8 @@ class Memory:
         pass
 
 
-mem = Memory()
-mem.add('What is the capital of France?', 'Paris')
-mem.add('What is the capital of Vietnam?', 'Hanoi')
-mem.add('Who is the best dog?', 'France')
-print(mem.retrieve('What is the capital of France?', n=2))
+# mem = Memory()
+# mem.add('What is the capital of France?', 'Paris')
+# mem.add('What is the capital of Vietnam?', 'Hanoi')
+# mem.add('Who is the best dog?', 'France')
+# print(mem.retrieve('What is the capital of France?', n=2))
