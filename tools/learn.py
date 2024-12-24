@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 import requests
 import json
+from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
 
 load_dotenv()
 
@@ -42,7 +43,33 @@ class Web:
     def cache(self, query, result):
         pass
 
+class InternalDoc:
+    def __init__(self):
+        # Load documents from a directory
+        self.documents = SimpleDirectoryReader("./data").load_data()
+        # Create an index from the documents
+        index = VectorStoreIndex.from_documents(self.documents)
+        # Create a query engine
+        self.query_engine = index.as_query_engine()
 
-web = Web()
-print(web.facts("What is the capital of France?"))
+    def search(self, query):
+        # Query the system
+        response = self.query_engine.query(query)
+        print(response)
+
+# web = Web()
+# print(web.facts("What is the capital of France?"))
+doc = InternalDoc()
+doc.search('What did Environmental Sustainability Report include?')
+
+
+
+
+
+
+
+
+
+
+
 
