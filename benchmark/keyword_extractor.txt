@@ -1,0 +1,74 @@
+==================================================
+Paragraph 1:
+==================================================
+
+         Sarah, visiting from sunny Miami, Florida, met with Dr. Chen at the bustling Grand Central...
+
+/home/thomas/Git-projects/superman/myenv/lib/python3.10/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+
+YAKE keywords:
+Time taken: 0.017730712890625 seconds
+[('Grand Central Terminal', 0.00018844680184199842), ('bustling Grand Central', 0.00040089314250254024), ('Grand Central', 0.003276962479729974), ('Central Terminal', 0.003276962479729974), ('sunny Miami', 0.006317346381165546)]
+
+KeyBERT keywords:
+Time taken: 0.09887266159057617 seconds
+[('sarah', 0.411), ('lincoln', 0.3604), ('london', 0.3591), ('festival', 0.3119), ('city', 0.2943)]
+
+PKE keywords:
+Time taken: 0.6300578117370605 seconds
+[('london', 0.06018173533121122), ('upcoming conference', 0.046167474548697275), ('sarah', 0.03694873576524385), ('des moines', 0.02940129836962181), ('petra', 0.029166274110668522), ('jordan', 0.02817693460967445), ('recent archaeological discoveries', 0.02770595429444009), ('hot dogs', 0.027513903243136933), ('scent', 0.026888808253537143), ('tower', 0.02664681916474317)]
+
+==================================================
+Paragraph 2:
+==================================================
+The ancient temple stood atop Mount Serenity, shrouded in morning mist. Professor Zhang examined the...
+
+
+YAKE keywords:
+Time taken: 0.017426729202270508 seconds
+[('atop Mount Serenity', 0.0003958406611376006), ('stood atop Mount', 0.0009591016473122961), ('ancient temple stood', 0.0018677481906523962), ('temple stood atop', 0.0018677481906523962), ('Mount Serenity', 0.003216363272432705)]
+
+KeyBERT keywords:
+Time taken: 0.05951261520385742 seconds
+[('temple', 0.414), ('serenity', 0.3919), ('ancient', 0.3671), ('zhang', 0.3544), ('inscriptions', 0.3472)]
+
+PKE keywords:
+Time taken: 0.6812188625335693 seconds
+[('graduate student', 0.0720732772765671), ('possible visits', 0.06927129563375617), ('ming dynasty', 0.06863140596319897), ('tom', 0.06787121755828532), ('professor zhang', 0.06604690958908715), ('mysterious site', 0.06603325810298286), ('legends', 0.06382134079942109), ('morning mist', 0.06370940501531647), ('connections', 0.06313217822664272), ('intricate carvings', 0.06311083920472882)]
+
+==================================================
+Paragraph 3:
+==================================================
+At the bustling Tech Expo 2023 in Silicon Valley, startups showcased their latest AI innovations. Dr...
+
+
+YAKE keywords:
+Time taken: 0.027951955795288086 seconds
+[('Silicon Valley', 0.007851091317120995), ('bustling Tech Expo', 0.008610546740645863), ('Tech Expo', 0.03157978003568455), ('startups showcased', 0.03870470424490013), ('latest AI innovations', 0.03870470424490013)]
+
+KeyBERT keywords:
+Time taken: 0.06320357322692871 seconds
+[('robot', 0.4463), ('ai', 0.4418), ('innovations', 0.4373), ('tech', 0.408), ('prototype', 0.3966)]
+
+PKE keywords:
+Time taken: 0.5714623928070068 seconds
+[('major tech companies', 0.07924455796069407), ('complex maintenance tasks', 0.0772537852406874), ('google', 0.07389039922366633), ('microsoft', 0.07341904823535095), ('visitors', 0.07181480902825862), ('spot', 0.06907733178701773), ('notes', 0.06556426359058215), ('potential investments', 0.06275798568991711), ('cups', 0.06271190161381733), ('robot', 0.06036935919551931)]
+
+==================================================
+Paragraph 4:
+==================================================
+The small bakery in Paris's Montmartre district filled the street with the aroma of fresh croissants...
+
+
+YAKE keywords:
+Time taken: 0.02128291130065918 seconds
+[('Paris Montmartre district', 0.0003325891235796115), ('Montmartre district filled', 0.0006243691645146839), ('Paris Montmartre', 0.003149685405114715), ('bakery in Paris', 0.005885734541033597), ('Montmartre district', 0.005885734541033597)]
+
+KeyBERT keywords:
+Time taken: 0.05260491371154785 seconds
+[('bakery', 0.5666), ('croissants', 0.5424), ('recipe', 0.4357), ('marie', 0.4293), ('baker', 0.4031)]
+
+PKE keywords:
+Time taken: 0.5572445392608643 seconds
+[('secret recipe', 0.07700306263182813), ('fresh croissants', 0.07603089614800732), ('tourists', 0.07512811839107922), ('photos', 0.07019583870313144), ('aroma', 0.0686477808716365), ('marie', 0.06823320102057381), ('montmartre district', 0.06685420439183401), ('grandmother', 0.06511604761240242), ('paris', 0.06494762001019387), ('street', 0.06248942782233892)]

@@ -95,3 +95,21 @@ def benchmark(doc):
         'keybert': bert_results,
         'pke': pke_results
     }
+
+
+if __name__ == "__main__":
+    # Sample paragraphs
+    paragraphs = [
+        doc,  # Original paragraph
+        """The ancient temple stood atop Mount Serenity, shrouded in morning mist. Professor Zhang examined the weathered inscriptions while her graduate student, Tom, photographed the intricate carvings. A local guide, speaking in broken English, shared legends about the mysterious site, mentioning connections to the Ming Dynasty and possible visits from Marco Polo.""",
+        """At the bustling Tech Expo 2023 in Silicon Valley, startups showcased their latest AI innovations. Dr. Rodriguez demonstrated a quantum computing prototype, while nearby, a robot named SPOT performed complex maintenance tasks. Visitors from major tech companies like Google and Microsoft took notes, some discussing potential investments over cups of artisanal coffee.""",
+        """The small bakery in Paris's Montmartre district filled the street with the aroma of fresh croissants. Marie, a third-generation baker, carefully crafted her grandmother's secret recipe while tourists snapped photos through the window. The morning rain had just stopped, leaving the cobblestones glistening in the early sunlight."""
+    ]
+
+    # Run benchmark on each paragraph
+    for i, paragraph in enumerate(paragraphs, 1):
+        print(f"\n{'='*50}\nParagraph {i}:\n{'='*50}")
+        print(paragraph[:100] + "...\n")
+        results = benchmark(paragraph)
+    
+    
