@@ -9,9 +9,6 @@ class Ear:
         print(result['text'])
         print(f'Time taken: {time.time() - begin} seconds')
     
-
-
-
 # ear = Ear()
 # ear.transcribe('recording.m4a')
 

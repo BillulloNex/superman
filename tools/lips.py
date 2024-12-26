@@ -187,6 +187,6 @@ class Lips:
 lip = Lips()
 from superman import Superman
 
-atlas = Superman(name='Princess Bubblegum', model = 'smollm2:360m', personality='Crazy and sexy')
+atlas = Superman(name='Princess Bubblegum', model = 'llama3.2:1b', personality='Crazy and sexy')
 
 lip.speak(atlas.answer('What is the meaning of life?'))
