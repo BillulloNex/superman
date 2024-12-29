@@ -123,14 +123,18 @@ class TextProcessor:
         self.audio_queue.put(None)  # Signal completion
 
 def text_display_worker(print_queue):
+    print('text in')
     while True:
         text = print_queue.get()
         if text is None:
             break
         print(text, end='', flush=True)
         print_queue.task_done()
+    print('text out')
+    return True
 
 def audio_player_worker(audio_queue):
+    print('audio worker in')
     """Worker thread that plays pre-generated audio"""
     tts = PiperTTS()
     while True:
@@ -141,7 +145,8 @@ def audio_player_worker(audio_queue):
         sentence, audio_data = item
         tts.play_audio(audio_data)
         audio_queue.task_done()
-
+    print('audio worker out')
+    return True
 
 class Lips:
     def __init__(self):
@@ -168,28 +173,31 @@ class Lips:
         audio_thread.start()
         display_thread.start()
     def speak(self, stream):
+        
         try:
             for text_chunk in stream:
-
-                if text_chunk == '':
+                if text_chunk == '' :
                     break
+            
                 self.text_processor.process_text(text_chunk)
-            self.text_processor.finish()
+            # self.text_processor.finish()
             
             self.audio_queue.put(None)
             self.print_queue.put(None)
-            print('print queue joined')
-            print(f"Audio queue size: {self.audio_queue.qsize()}")
-            print("Queue contents before join:")
-            queue_copy = list(self.audio_queue.queue)
-            print(queue_copy)
+            # print('print queue joined')
+            # print(f"Audio queue size: {self.audio_queue.qsize()}")
+            # print("Queue contents before join:")
+            # queue_copy = list(self.audio_queue.queue)
+            # print(queue_copy)
             self.audio_queue.task_done()
             print('done')
             # self.audio_queue.join()
             print(f"Audio queue size after join: {self.audio_queue.qsize()}")
             print('audio queue joined')
             self.print_queue.task_done()
-            self.print_queue.join()
+            # self.print_queue.join()
+            print('tadone')
+
             
         except KeyboardInterrupt:
             print("\nStopping program...")
@@ -197,21 +205,45 @@ class Lips:
             print(f"\nAn error occurred: {e}")
         finally:
             print("Exiting program...")
-            # Ensure threads are properly terminated
-            # self.audio_queue.put(None)
-            # self.print_queue.put(None)
+            
+            # Ensure threads are properly terminated  
+            self.text_processor.finish()
+            
+            return True
+            
+        print('exit for good')
         return True
-    def speak_good_day(self):
-        lip = Lips()
-        lip.speak(["It is a good day. I am Thomas. I like dogs. I am not gay. I like clouds\n"])
+    def hi(self, text):
+        self.text_processor.process_text(text)
+        self.text_processor.finish()
+        self.audio_queue.put(None)
+        self.print_queue.put(None)
+        print('print queue joined')
+        print(f"Audio queue size: {self.audio_queue.qsize()}")
+        print("Queue contents before join:")
+        queue_copy = list(self.audio_queue.queue)
+        print(queue_copy)
+        self.audio_queue.task_done()
+        print('done')
+        # self.audio_queue.join()
+        print(f"Audio queue size after join: {self.audio_queue.qsize()}")
+        print('audio queue joined')
+        self.print_queue.task_done()
+        # self.print_queue.join()
+        print('tadone')
 
-def random_text():
-    for i in range(6):
+
+'''def random_text():
+    for i in range(2):
         yield f'Hello world {i}.'
 lip = Lips()
+# lip.hi('hi i am bubble gum')
+# lip.hi('and you look rather sexy')
 lip.speak(random_text())
-lip.speak(random_text())
-
+lip2 = Lips()
+lip2.speak(random_text())
+  
+'''
 '''
 from superman import Superman
 
