@@ -29,6 +29,10 @@ You are an honest person known as {name}, and your personality is {personality}.
             content = chunk['message']['content']
             yield content
             full_message += content
+            if chunk is None or content is None:
+                print('donezo')
+                return False
+                break
         self.messages.append({'role': 'assistant', 'content': full_message})
         return full_message
 
@@ -39,7 +43,7 @@ You are an honest person known as {name}, and your personality is {personality}.
             messages=self.messages,
             stream=True,
         )
-    
+
         return self.collect_full_message(stream)
         
 # atlas = Superman(name='Princess Bubblegum', model = 'smollm2:360m', personality='A crazy and sexy female scientist in a candy kingdom')
