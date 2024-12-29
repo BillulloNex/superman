@@ -6,6 +6,8 @@ import os
 import warnings
 warnings.filterwarnings('ignore')
 
+
+
 talk_button = Button(26)
 # listen = Ear()
 
@@ -14,7 +16,8 @@ lip = Lips()
 
 
 atlas = Superman(name='Princess Bubblegum', model = 'qwen2.5:0.5b', personality='Crazy and sexy')
-
+# lip.speak(atlas.answer('What is the meaning of life?'))
+# lip.speak(atlas.answer('What is your favorite food?'))
 transcription_pending = False
 
 for chunk in talk_button.monitor():

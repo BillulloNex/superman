@@ -5,6 +5,7 @@ import re
 import threading
 import queue
 import sys
+
 class PiperTTS:
     def __init__(self):
         self.model = "en_US-lessac-medium.onnx"
@@ -169,13 +170,25 @@ class Lips:
     def speak(self, stream):
         try:
             for text_chunk in stream:
-                self.text_processor.process_text(text_chunk)
+
                 if text_chunk == '':
                     break
+                self.text_processor.process_text(text_chunk)
             self.text_processor.finish()
+            
+            self.audio_queue.put(None)
             self.print_queue.put(None)
-            self.audio_queue.join()
+            print('print queue joined')
+            print(f"Audio queue size: {self.audio_queue.qsize()}")
+            print("Queue contents before join:")
+            queue_copy = list(self.audio_queue.queue)
+            print(queue_copy)
+            self.audio_queue.task_done()
+            print('done')
+            # self.audio_queue.join()
+            print(f"Audio queue size after join: {self.audio_queue.qsize()}")
             print('audio queue joined')
+            self.print_queue.task_done()
             self.print_queue.join()
             
         except KeyboardInterrupt:
@@ -185,16 +198,20 @@ class Lips:
         finally:
             print("Exiting program...")
             # Ensure threads are properly terminated
-            self.audio_queue.put(None)
-            self.print_queue.put(None)
+            # self.audio_queue.put(None)
+            # self.print_queue.put(None)
         return True
     def speak_good_day(self):
         lip = Lips()
-        lip.speak(["It is a good day.\n"])
+        lip.speak(["It is a good day. I am Thomas. I like dogs. I am not gay. I like clouds\n"])
 
+def random_text():
+    for i in range(6):
+        yield f'Hello world {i}.'
+lip = Lips()
+lip.speak(random_text())
+lip.speak(random_text())
 
-# lip = Lips()
-# lip.speak_good_day()
 '''
 from superman import Superman
 
@@ -202,9 +219,7 @@ atlas = Superman(name='Princess Bubblegum', model = 'qwen2.5:0.5b', personality=
 
 lip.speak(atlas.answer('What is the meaning of life?'))
 
-def random_text():
-    for i in range(10):
-        yield f'Hello world {i}.'
+
 
 lip.speak(random_text())
 '''

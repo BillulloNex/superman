@@ -130,7 +130,7 @@ class Ear:
         
     def transcribe_recording(self):
         if os.path.exists('test.wav'):
-            model = whisper.load_model('medium.en')
+            model = whisper.load_model('base.en')
             result = model.transcribe('test.wav')
             return result['text']
         return "No recording found"
