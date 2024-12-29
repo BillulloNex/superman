@@ -4,7 +4,7 @@ import json
 import re
 import threading
 import queue
-
+import sys
 class PiperTTS:
     def __init__(self):
         self.model = "en_US-lessac-medium.onnx"
@@ -141,6 +141,7 @@ def audio_player_worker(audio_queue):
         tts.play_audio(audio_data)
         audio_queue.task_done()
 
+
 class Lips:
     def __init__(self):
         # Initialize queues
@@ -169,27 +170,41 @@ class Lips:
         try:
             for text_chunk in stream:
                 self.text_processor.process_text(text_chunk)
-                # print(f'chunk: {text_chunk}')
                 if text_chunk == '':
-                    print('donezo')
                     break
             self.text_processor.finish()
             self.print_queue.put(None)
             self.audio_queue.join()
+            print('audio queue joined')
             self.print_queue.join()
+            
         except KeyboardInterrupt:
             print("\nStopping program...")
         except Exception as e:
             print(f"\nAn error occurred: {e}")
         finally:
+            print("Exiting program...")
             # Ensure threads are properly terminated
             self.audio_queue.put(None)
             self.print_queue.put(None)
+        return True
+    def speak_good_day(self):
+        lip = Lips()
+        lip.speak(["It is a good day.\n"])
+
 
 # lip = Lips()
-# from superman import Superman
+# lip.speak_good_day()
+'''
+from superman import Superman
 
-# atlas = Superman(name='Princess Bubblegum', model = 'qwen2.5:0.5b', personality='Crazy and sexy')
+atlas = Superman(name='Princess Bubblegum', model = 'qwen2.5:0.5b', personality='Crazy and sexy')
 
-# lip.speak(atlas.answer('What is the meaning of life?'))
+lip.speak(atlas.answer('What is the meaning of life?'))
 
+def random_text():
+    for i in range(10):
+        yield f'Hello world {i}.'
+
+lip.speak(random_text())
+'''

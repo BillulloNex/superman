@@ -11,6 +11,8 @@ talk_button = Button(26)
 
 ear = Ear()
 lip = Lips()
+
+
 atlas = Superman(name='Princess Bubblegum', model = 'qwen2.5:0.5b', personality='Crazy and sexy')
 
 transcription_pending = False
@@ -26,7 +28,7 @@ for chunk in talk_button.monitor():
         audio_path = "test.wav"
         if audio_path and os.path.exists(audio_path):
             text = ear.transcribe_recording()
-            print('speaking')
+            print(f'speaking {text}')
             lip.speak(atlas.answer(text))
         transcription_pending = False
     # print(ear.get_status())
